@@ -1,7 +1,7 @@
 import { ToolConstructable, ToolSettings } from "@editorjs/editorjs";
 import Embed from "@editorjs/embed";
 import Header from "@editorjs/header";
-import List from "@editorjs/list";
+import NestedList from "@editorjs/nested-list";
 import Paragraph from "@editorjs/paragraph";
 import Quote from "@editorjs/quote";
 import strikethroughIcon from "@saleor/icons/StrikethroughIcon";
@@ -20,8 +20,11 @@ export const tools: Record<string, ToolConstructable | ToolSettings> = {
     inlineToolbar,
   },
   list: {
-    class: List,
-    inlineToolbar,
+    class: NestedList,
+    inlineToolbar: true,
+    config: {
+      defaultStyle: "unordered",
+    },
   },
   quote: {
     class: Quote,
